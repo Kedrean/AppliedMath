@@ -396,6 +396,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 108160932784230806, guid: 9552adffc97116940a3ed75bb5ffd0db, type: 3}
+      propertyPath: rocketPrefab
+      value: 
+      objectReference: {fileID: 599633164832405619, guid: 913eccdcac7e8794e9db4456d3ac5b8a, type: 3}
     - target: {fileID: 4287814435075920894, guid: 9552adffc97116940a3ed75bb5ffd0db, type: 3}
       propertyPath: m_Name
       value: Player

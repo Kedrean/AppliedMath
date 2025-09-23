@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a71c1c83f27586a44800267398a7d088
+guid: 321e5726f3b922e45aa9179ea71da994
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,264 +97,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RPG_Items_0
+      name: New Basic Tiles Free_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 96
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be4489d41a22270429f9849b0b64b79b
-      internalID: 1001679140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_1
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 113
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2799adeca18467341bd0e071ce205120
-      internalID: 1015256001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_2
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 113
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46527c287e275064baf6117a8158c9df
-      internalID: 17270868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_3
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 113
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28061e45bc54b1041b7de84df490844e
-      internalID: 1190073203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_4
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 64
-        width: 48
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c395011dc89fe784aa87c69290a40888
-      internalID: 1495609387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9551c4ad06dd41f4c809bceae758f96c
-      internalID: -1294028105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_6
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 80
-        width: 15
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3afc8d5d31f88424dbbc16ac01dc5f35
-      internalID: 1906581429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_7
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 99
+        x: 4
+        y: 162
         width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c4a6bcc7eb0708458e28ee12be97dd1
-      internalID: -573307277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_8
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 80
-        width: 14
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 170a1b38ba6d06b439d69d176a112c0d
-      internalID: 55887247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_9
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd8f9b6278918c14db14e044fe13abf3
-      internalID: 1423647664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_10
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b3697d83b167ed40bded7d6365f3978
-      internalID: 841220213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_11
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 65
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f0be15aee8da5541b12467798ecec91
-      internalID: 2093731458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_12
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 51
-        width: 13
         height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -363,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2fda5d8f1bd6f94e945c5ae3b093bc8
-      internalID: 1739424243
+      spriteID: ed7fa05e76b6fdf4abe4744ec20dbfe9
+      internalID: 119466759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_13
+      name: New Basic Tiles Free_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 51
-        width: 13
-        height: 12
+        x: 20
+        y: 148
+        width: 9
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85c70686dd50997469dcd7b00daf6e51
-      internalID: -79089829
+      spriteID: 4206443de242b6849bcac419e0ce9b6b
+      internalID: -484957439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_14
+      name: New Basic Tiles Free_2
       rect:
         serializedVersion: 2
         x: 34
-        y: 51
-        width: 13
-        height: 12
+        y: 168
+        width: 12
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c9c246732479d4429003634fbff32c6
-      internalID: 358291217
+      spriteID: a8f8f69678a9f6e40804641dba4a8db4
+      internalID: -1982531354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_15
+      name: New Basic Tiles Free_3
       rect:
         serializedVersion: 2
-        x: 50
-        y: 51
-        width: 13
-        height: 12
+        x: 38
+        y: 162
+        width: 4
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b428757e0c0ec14c9bfcbc2f374c461
-      internalID: 780260550
+      spriteID: 8a1b66d99e6566e479e5c19a73fe900b
+      internalID: 1693202821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_16
+      name: New Basic Tiles Free_4
       rect:
         serializedVersion: 2
-        x: 67
-        y: 48
-        width: 11
-        height: 15
+        x: 52
+        y: 165
+        width: 9
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,167 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c68d8b6c00a231c458d3ab730455173e
-      internalID: 933447413
+      spriteID: d11b7de3293ea8747a5cb58c62579d5d
+      internalID: -712647538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_17
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 48
-        width: 11
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a84a26a6546df514a82f5fc67819e647
-      internalID: 2119801178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_18
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 48
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea85067aedd94794d9ef084bf76741be
-      internalID: -1355572338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_19
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 33
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db34cf4cb2c1b5f499d987af9b8ecac1
-      internalID: 1855813070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_20
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 33
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a84b8916d92d2e043bcadab0399b2545
-      internalID: 1551098419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_21
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 33
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa3de65fef48a5d45b1e39f1246ddba2
-      internalID: -2001555938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_22
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 17
-        width: 15
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6c28513e63387d49af5977e510b3df0
-      internalID: 61849636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_23
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 17
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da55344d6ae71934fb40079665e662a3
-      internalID: -1707562438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_24
+      name: New Basic Tiles Free_5
       rect:
         serializedVersion: 2
         x: 80
-        y: 18
-        width: 16
-        height: 12
+        y: 163
+        width: 112
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,20 +216,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18fb5647806cbe94595f8a586fbbcf78
-      internalID: -1903630158
+      spriteID: e98f41336420dfb46902ce21bd6326d0
+      internalID: 557756165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_25
+      name: New Basic Tiles Free_6
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 165
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324d621f2acfc004599985dbafa1efd2
+      internalID: 141362654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_7
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 164
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f19b67105a30bb47a9bea84ba0b167b
+      internalID: 492189032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_8
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 165
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4553ca1309e1f4f904461dcead5206
+      internalID: -895736639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_9
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 168
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c446552401c2041ac22c9a5dd9b9c7
+      internalID: -1079477969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_10
       rect:
         serializedVersion: 2
         x: 2
-        y: 2
-        width: 11
-        height: 11
+        y: 150
+        width: 4
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -636,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5ba40ec1ac618a4f85784fa652460e2
-      internalID: 874308850
+      spriteID: db48cfafee1b50646a95918654508bd5
+      internalID: -912713972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_26
+      name: New Basic Tiles Free_11
       rect:
         serializedVersion: 2
-        x: 19
-        y: 3
-        width: 9
-        height: 9
+        x: 8
+        y: 145
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -657,39 +342,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1848769749d4c1d49ac85d43abb9aca1
-      internalID: -1213595578
+      spriteID: 5315707351339764f9efa2386e4338ae
+      internalID: -1963402839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_27
+      name: New Basic Tiles Free_12
       rect:
         serializedVersion: 2
-        x: 34
-        y: 2
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ceca70ef7f1e994ba720c5ffe599e80
-      internalID: -1578254161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RPG_Items_28
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 4
+        x: 35
+        y: 148
         width: 11
         height: 10
       alignment: 0
@@ -699,19 +363,166 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b277066ede63de742afeed28322764c8
-      internalID: 171585723
+      spriteID: 33460149bcab88e4eae69239a3a6804e
+      internalID: 1532790688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_29
+      name: New Basic Tiles Free_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 4
-        width: 16
+        x: 50
+        y: 145
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f66895f7e12204bb05abe2363dcadf
+      internalID: -1196500233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 148
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26bbf130e6a31b4a8bedf5605bc0554
+      internalID: -739064512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_15
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 148
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de5a3b51a8ed6c4b8b211ffbfd5973e
+      internalID: -364770136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_16
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 136
+        width: 118
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31172ddbb108fde4d97bcfdf6d6b8017
+      internalID: -45374405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9242cb9bce4f1ee45b41b183e4bebc18
+      internalID: 121731486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 134
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957557f109d2e4c40a149e9d949fb2db
+      internalID: 1336828212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_19
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 136
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf056a322aefef4e84125a140736849
+      internalID: -1182745553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_20
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 135
+        width: 5
         height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -720,20 +531,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b97d6a35b7c772d46a085ff440d8ce22
-      internalID: -1425492018
+      spriteID: 4d16af6d7b8276d428925f74d28ce4ab
+      internalID: 511290492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RPG_Items_30
+      name: New Basic Tiles Free_21
       rect:
         serializedVersion: 2
-        x: 82
-        y: 2
-        width: 11
-        height: 11
+        x: 86
+        y: 133
+        width: 8
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -741,8 +552,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce10365fc2e622b40a1ac2d47ebfc0c6
-      internalID: -955646313
+      spriteID: e46795b1dcbeddc4e94822d971267d72
+      internalID: 536874746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_22
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 132
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06eeac6af7e68940a0b688059ed8e34
+      internalID: 456408025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_23
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 133
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b867a41b2de888b4391912b7582c3722
+      internalID: 2116284199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_24
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 136
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6f73233d54a2c42bcb2f6c78389363
+      internalID: 571262645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Basic Tiles Free_25
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 130
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf26e4d78fcf1b4db538ee5cb8b2b82
+      internalID: 1545894397
       vertices: []
       indices: 
       edges: []
@@ -758,37 +653,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RPG_Items_0: 1001679140
-      RPG_Items_1: 1015256001
-      RPG_Items_10: 841220213
-      RPG_Items_11: 2093731458
-      RPG_Items_12: 1739424243
-      RPG_Items_13: -79089829
-      RPG_Items_14: 358291217
-      RPG_Items_15: 780260550
-      RPG_Items_16: 933447413
-      RPG_Items_17: 2119801178
-      RPG_Items_18: -1355572338
-      RPG_Items_19: 1855813070
-      RPG_Items_2: 17270868
-      RPG_Items_20: 1551098419
-      RPG_Items_21: -2001555938
-      RPG_Items_22: 61849636
-      RPG_Items_23: -1707562438
-      RPG_Items_24: -1903630158
-      RPG_Items_25: 874308850
-      RPG_Items_26: -1213595578
-      RPG_Items_27: -1578254161
-      RPG_Items_28: 171585723
-      RPG_Items_29: -1425492018
-      RPG_Items_3: 1190073203
-      RPG_Items_30: -955646313
-      RPG_Items_4: 1495609387
-      RPG_Items_5: -1294028105
-      RPG_Items_6: 1906581429
-      RPG_Items_7: -573307277
-      RPG_Items_8: 55887247
-      RPG_Items_9: 1423647664
+      New Basic Tiles Free_0: 119466759
+      New Basic Tiles Free_1: -484957439
+      New Basic Tiles Free_10: -912713972
+      New Basic Tiles Free_11: -1963402839
+      New Basic Tiles Free_12: 1532790688
+      New Basic Tiles Free_13: -1196500233
+      New Basic Tiles Free_14: -739064512
+      New Basic Tiles Free_15: -364770136
+      New Basic Tiles Free_16: -45374405
+      New Basic Tiles Free_17: 121731486
+      New Basic Tiles Free_18: 1336828212
+      New Basic Tiles Free_19: -1182745553
+      New Basic Tiles Free_2: -1982531354
+      New Basic Tiles Free_20: 511290492
+      New Basic Tiles Free_21: 536874746
+      New Basic Tiles Free_22: 456408025
+      New Basic Tiles Free_23: 2116284199
+      New Basic Tiles Free_24: 571262645
+      New Basic Tiles Free_25: 1545894397
+      New Basic Tiles Free_3: 1693202821
+      New Basic Tiles Free_4: -712647538
+      New Basic Tiles Free_5: 557756165
+      New Basic Tiles Free_6: 141362654
+      New Basic Tiles Free_7: 492189032
+      New Basic Tiles Free_8: -895736639
+      New Basic Tiles Free_9: -1079477969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

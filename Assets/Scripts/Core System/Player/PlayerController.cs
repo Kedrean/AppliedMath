@@ -74,6 +74,66 @@ public class PlayerController : MonoBehaviour, IMovable
 
     private void ChangeLane(int dir)
     {
+        _lane = Mathf.Clamp(_lane + dir, 0, 2);
+        UpdateLanePosition();
+        animator?.SetTrigger("SwitchLane");
+    }
 
+    private void UpdateLanePosition()
+    {
+        float x = (_lane - 1) * laneOffset;
+        _targetPos = new Vector3(x, transform.position.y, transform.position.z);
+    }
+
+    private void MoveLane(float deltaTime)
+    {
+        Vector3 pos = transform.position;
+        float step = laneSwitchSpeed * deltaTime;
+        float dx = _targetPos.x - pos.x;
+        float moveX = Mathf.Sign(dx) * Mathf.Min(Mathf.Abs(dx), step);
+        pos.x += moveX;
+        transform.position = new Vector3(pos.x, pos.y, pos.z);
+    }
+
+    private void ApplyJump(float deltaTime)
+    {
+        _yVelocity += gravity * deltaTime;
+        float y = transform.position.y + _yVelocity * deltaTime;
+        if (y <= groundY)
+        {
+            y = groundY;
+            _yVelocity = 0f;
+        }
+        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        _health.TakeDamage(dmg);
+        animator?.SetTrigger("Hit");
+        if (_health.currentHP == 0) Die();
+    }
+
+    private void Die()
+    {
+        animator?.SetTrigger("Die");
+        GameManager.Instance.OnPlayerDead();
+    }
+
+    private void OnHealthChanged(int hp, int max)
+    {
+        UIManager.Instance.UpdateHP(hp, max);
+    }
+
+    public bool IsHitBy(Vector3 obstaclePos, int lane)
+    {
+        return _collisionChecker.CheckCollision(obstaclePos, lane);
+    }
+
+    private void UpdateAnimator()
+    {
+        if (animator == null) return;
+        animator.SetBool("Running", Mathf.Approximately(transform.position.y, groundY));
+        animator.SetBool("MovingHoriz", Mathf.Abs(transform.position.x - _targetPos.x) > 0.01f);
     }
 }

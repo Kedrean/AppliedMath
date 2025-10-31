@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 
     private bool _gameOver;
 
-    private void Awaike() => Instance = this;
+    private void Awake() => Instance = this;
 
     public void OnPlayerDead()
     {

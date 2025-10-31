@@ -1,22 +1,29 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour, IMovable
 {
-    [Header("Movement")]
-    public float laneOffset = 2.5f;
-    public float laneSwitchSpeed = 10f;
-    public float jumpVelocity = 8f;
-    public float gravity = -20f;
-    public float groundY = 0f;
-
     [Header("HP")]
-    public int maxHP = 100;
-    public float hpRegenPerSec = 1f;
+    public int maxHP;
+    public float hpRegenPerSec;
+
+    [Header("Movement")]
+    public float laneSwitchSpeed;
+    public float jumpHeight;
+    public float gravity;
+    public float groundY;
+    public float spawnZ;
+    public float leftLaneX;
+    public float middleLaneX;
+    public float rightLaneX;
+    public float laneOffset => Mathf.Abs(rightLaneX - middleLaneX);
 
     [Header("Animation")]
     public Animator animator;
 
-    private int _lane = 1;
+    public bool IsEvading => transform.position.y > groundY + 0.1f;
+
+    private int _lane = 1; // 0 = left, 1 = middle, 2 = right
     private float _yVelocity;
     private Vector3 _targetPos;
 
@@ -35,15 +42,17 @@ public class PlayerController : MonoBehaviour, IMovable
         ((PlayerHealth)_health).HealthChanged += OnHealthChanged;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        // Spawn player in middle lane
+        _lane = 1;
+        _targetPos = new Vector3(middleLaneX, groundY, spawnZ);
+        transform.position = _targetPos;
         UpdateLanePosition();
 
         UIManager.Instance.UpdateHP(_health.currentHP, _health.maxHP);
     }
 
-    // Update is called once per frame
     private void Update()
     {
         HandleInput();
@@ -61,13 +70,26 @@ public class PlayerController : MonoBehaviour, IMovable
 
     private void HandleInput()
     {
+        // Move Left
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             ChangeLane(-1);
+            animator?.ResetTrigger("MoveRight");
+            animator?.SetTrigger("MoveLeft");
+        }
+
+        // Move Right
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
             ChangeLane(1);
+            animator?.ResetTrigger("MoveLeft");
+            animator?.SetTrigger("MoveRight");
+        }
+
+        // Jump
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Approximately(transform.position.y, groundY))
         {
-            _yVelocity = jumpVelocity;
+            _yVelocity = Mathf.Sqrt(2f * gravity * jumpHeight);
             animator?.SetTrigger("Jump");
         }
     }
@@ -76,13 +98,18 @@ public class PlayerController : MonoBehaviour, IMovable
     {
         _lane = Mathf.Clamp(_lane + dir, 0, 2);
         UpdateLanePosition();
-        animator?.SetTrigger("SwitchLane");
     }
 
     private void UpdateLanePosition()
     {
-        float x = (_lane - 1) * laneOffset;
-        _targetPos = new Vector3(x, transform.position.y, transform.position.z);
+        float x = _lane switch
+        {
+            0 => leftLaneX,
+            1 => middleLaneX,
+            2 => rightLaneX,
+            _ => middleLaneX
+        };
+        _targetPos = new Vector3(x, groundY, spawnZ);
     }
 
     private void MoveLane(float deltaTime)
@@ -92,31 +119,52 @@ public class PlayerController : MonoBehaviour, IMovable
         float dx = _targetPos.x - pos.x;
         float moveX = Mathf.Sign(dx) * Mathf.Min(Mathf.Abs(dx), step);
         pos.x += moveX;
-        transform.position = new Vector3(pos.x, pos.y, pos.z);
+
+        pos.z = spawnZ; // keep Z constant
+        transform.position = pos;
     }
 
     private void ApplyJump(float deltaTime)
     {
-        _yVelocity += gravity * deltaTime;
-        float y = transform.position.y + _yVelocity * deltaTime;
-        if (y <= groundY)
+        // Apply gravity
+        _yVelocity -= gravity * deltaTime;
+
+        // Update Y position
+        float newY = transform.position.y + _yVelocity * deltaTime;
+
+        // Clamp to ground
+        if (newY <= groundY)
         {
-            y = groundY;
+            newY = groundY;
             _yVelocity = 0f;
         }
-        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
     public void TakeDamage(int dmg)
     {
         _health.TakeDamage(dmg);
-        animator?.SetTrigger("Hit");
-        if (_health.currentHP == 0) Die();
+        if (_health.currentHP == 0)
+            Die();
     }
 
     private void Die()
     {
         animator?.SetTrigger("Die");
+        StartCoroutine(DieAfterAnimation());
+    }
+
+    private IEnumerator DieAfterAnimation()
+    {
+        // Wait for the animation to finish
+        if (animator != null)
+        {
+            AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+            float clipLength = state.length;
+            yield return new WaitForSeconds(clipLength);
+        }
+
         GameManager.Instance.OnPlayerDead();
     }
 
@@ -133,7 +181,11 @@ public class PlayerController : MonoBehaviour, IMovable
     private void UpdateAnimator()
     {
         if (animator == null) return;
-        animator.SetBool("Running", Mathf.Approximately(transform.position.y, groundY));
-        animator.SetBool("MovingHoriz", Mathf.Abs(transform.position.x - _targetPos.x) > 0.01f);
+
+        bool isGrounded = Mathf.Approximately(transform.position.y, groundY);
+        bool isMovingHorizontally = Mathf.Abs(transform.position.x - _targetPos.x) > 0.01f;
+
+        // Idle = grounded + not moving horizontally
+        animator.SetBool("Idle", isGrounded && !isMovingHorizontally);
     }
 }

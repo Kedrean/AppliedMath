@@ -9,8 +9,13 @@ public class ShapeMeshController : MonoBehaviour
     private Coroutine morphRoutine;
     private Coroutine scaleRoutine;
 
-    [Header("Rotation Settings")]
+    [Header("Animation Settings")]
     public float rotationSpeed = 30f; // degrees per second
+    public float bobAmount = 0.25f;   // vertical bob height
+    public float bobSpeed = 1.5f;     // vertical bob speed
+
+    private float spinAngle = 0f;     // current spin angle in degrees
+    private Mesh originalMesh;        // cached original mesh for stable base verts
 
     private void Awake()
     {
@@ -19,17 +24,42 @@ public class ShapeMeshController : MonoBehaviour
 
         if (meshFilter.sharedMesh == null)
             meshFilter.sharedMesh = new Mesh();
+
+        originalMesh = Instantiate(meshFilter.sharedMesh);
     }
 
     private void Update()
     {
-        float t = Time.time;
-        float smoothSpeed = rotationSpeed * 0.5f;
+        if (originalMesh == null || originalMesh.vertexCount == 0)
+            return;
 
-        // Wobbling rotation for a smoother “alive” look
-        transform.Rotate(Vector3.up, Mathf.Sin(t * 0.5f) * smoothSpeed * Time.deltaTime, Space.World);
-        transform.Rotate(Vector3.right, Mathf.Cos(t * 0.3f) * smoothSpeed * 0.6f * Time.deltaTime, Space.World);
-        transform.Rotate(Vector3.forward, Mathf.Sin(t * 0.4f + 1f) * smoothSpeed * 0.4f * Time.deltaTime, Space.World);
+        // Update spin angle
+        spinAngle += rotationSpeed * Time.deltaTime;
+
+        // Calculate bobbing vertical offset
+        float yOffset = Mathf.Sin(Time.time * bobSpeed) * bobAmount;
+
+        // Compose transformation matrix: translation then rotation
+        Matrix4x4 translation = Matrix4x4.Translate(new Vector3(0, yOffset, 0));
+        Matrix4x4 rotation = GLRotation.RotateY(spinAngle);
+        Matrix4x4 transformMatrix = translation * rotation;
+
+        // Apply transform to mesh vertices
+        ApplyTransformToMesh(transformMatrix);
+    }
+
+    private void ApplyTransformToMesh(Matrix4x4 matrix)
+    {
+        Vector3[] baseVerts = originalMesh.vertices;
+        Vector3[] transformedVerts = new Vector3[baseVerts.Length];
+
+        for (int i = 0; i < baseVerts.Length; i++)
+            transformedVerts[i] = matrix.MultiplyPoint3x4(baseVerts[i]);
+
+        Mesh mesh = meshFilter.sharedMesh;
+        mesh.vertices = transformedVerts;
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
     }
 
     public void SetMaterial(Material mat)
@@ -48,13 +78,15 @@ public class ShapeMeshController : MonoBehaviour
     public void SetMeshInstant(Mesh mesh)
     {
         if (mesh == null) return;
+
         meshFilter.sharedMesh = Instantiate(mesh);
         meshFilter.sharedMesh.RecalculateNormals();
         meshFilter.sharedMesh.RecalculateBounds();
+
+        originalMesh = Instantiate(meshFilter.sharedMesh);
     }
 
-    #region Morph Logic
-
+    // --- Morph Logic ---
     public void MorphToMesh(Mesh targetMesh, AnimationCurve curve, float duration)
     {
         if (targetMesh == null)
@@ -86,6 +118,7 @@ public class ShapeMeshController : MonoBehaviour
         {
             time += Time.deltaTime;
             float t = curve.Evaluate(time / duration);
+
             Vector3[] result = new Vector3[normEndVerts.Length];
             for (int i = 0; i < result.Length; i++)
                 result[i] = Vector3.Lerp(normStartVerts[i % normStartVerts.Length], normEndVerts[i % normEndVerts.Length], t);
@@ -118,10 +151,7 @@ public class ShapeMeshController : MonoBehaviour
         return adjusted;
     }
 
-    #endregion
-
-    #region Scale Animation + Erase
-
+    // --- Scale Animation + Erase ---
     public void ScaleIn(Vector3 targetScale, float duration)
     {
         if (scaleRoutine != null)
@@ -168,5 +198,49 @@ public class ShapeMeshController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    #endregion
+    // --- GL Rotation Helper ---
+    public static class GLRotation
+    {
+        public static Matrix4x4 RotateX(float degrees)
+        {
+            float r = degrees * Mathf.Deg2Rad;
+            float c = Mathf.Cos(r);
+            float s = Mathf.Sin(r);
+
+            return new Matrix4x4(
+                new Vector4(1, 0, 0, 0),
+                new Vector4(0, c, -s, 0),
+                new Vector4(0, s, c, 0),
+                new Vector4(0, 0, 0, 1)
+            );
+        }
+
+        public static Matrix4x4 RotateY(float degrees)
+        {
+            float r = degrees * Mathf.Deg2Rad;
+            float c = Mathf.Cos(r);
+            float s = Mathf.Sin(r);
+
+            return new Matrix4x4(
+                new Vector4(c, 0, s, 0),
+                new Vector4(0, 1, 0, 0),
+                new Vector4(-s, 0, c, 0),
+                new Vector4(0, 0, 0, 1)
+            );
+        }
+
+        public static Matrix4x4 RotateZ(float degrees)
+        {
+            float r = degrees * Mathf.Deg2Rad;
+            float c = Mathf.Cos(r);
+            float s = Mathf.Sin(r);
+
+            return new Matrix4x4(
+                new Vector4(c, -s, 0, 0),
+                new Vector4(s, c, 0, 0),
+                new Vector4(0, 0, 1, 0),
+                new Vector4(0, 0, 0, 1)
+            );
+        }
+    }
 }

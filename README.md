@@ -1,2 +1,0 @@
-# Rockets
-Exercise 2

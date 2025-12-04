@@ -42,12 +42,14 @@ public class PlayerController : MonoBehaviour
         currentHP = maxHP;
 
         Vector3 startPos = transform.position;
-        colliderID = CollisionManager.Instance.RegisterCollider(startPos, size, true);
+        colliderID = CollisionManager.Instance.RegisterCollider(startPos, size, false);
         CollisionManager.Instance.SetOwner(colliderID, gameObject);
         Matrix4x4 m = Matrix4x4.TRS(startPos, Quaternion.identity, Vector3.one);
         CollisionManager.Instance.UpdateMatrix(colliderID, m);
 
         if (cameraFollow != null) cameraFollow.SetPlayerPosition(transform.position);
+
+        Debug.Log($"Player colliderID: {colliderID} registered at position {startPos}");
     }
 
     void Update()
@@ -103,15 +105,17 @@ public class PlayerController : MonoBehaviour
 
         float speed = groundSpeed;
         if (!isGrounded) speed *= airSpeedMultiplier;
+
         Vector3 pos = CollisionManager.Instance.GetMatrix(colliderID).GetPosition();
 
+        // Horizontal movement and collision check
         float newX = pos.x + inputHorizontal * speed * dt;
-
         if (!CheckCollisionAt(colliderID, new Vector3(newX, pos.y, pos.z)))
         {
             pos.x = newX;
         }
 
+        // Vertical movement and gravity
         if (velocity.y > 0f)
         {
             velocity.y -= gravity * dt * 0.5f;
@@ -148,17 +152,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // Apply final position
         transform.position = pos;
+
+        // Update collider matrix and size to match new position
         Matrix4x4 m = Matrix4x4.TRS(pos, Quaternion.identity, Vector3.one);
         CollisionManager.Instance.UpdateMatrix(colliderID, m);
         CollisionManager.Instance.UpdateCollider(colliderID, pos, size);
 
-        if (CollisionManager.Instance.CheckCollision(colliderID, pos, out List<int> colliding))
+        bool collided = CollisionManager.Instance.CheckCollision(colliderID, pos, out List<int> colliding);
+        Debug.Log($"Collision check for player: collided={collided}, colliding count={colliding?.Count ?? 0}");
+
+
+        // **Check collisions after movement update and collider update**
+        if (collided && colliding != null && colliding.Count > 0)
         {
+            Debug.Log($"Player colliding with {colliding.Count} objects");
             foreach (int otherID in colliding)
             {
                 GameObject owner = CollisionManager.Instance.GetOwner(otherID);
-                if (owner == null) continue;
+                if (owner == null)
+                {
+                    Debug.LogWarning($"Collider ID {otherID} has no owner!");
+                    continue;
+                }
+
+                Debug.Log($"Player collided with {owner.name}");
 
                 var power = owner.GetComponent<PowerupPickup>();
                 if (power != null)
@@ -172,6 +191,7 @@ public class PlayerController : MonoBehaviour
                 var enemy = owner.GetComponent<Enemy>();
                 if (enemy != null)
                 {
+                    Debug.Log("Collision with Enemy detected.");
                     OnEnemyCollision(enemy);
                     continue;
                 }
@@ -179,6 +199,7 @@ public class PlayerController : MonoBehaviour
                 var instakill = owner.GetComponent<InstakillObstacle>();
                 if (instakill != null)
                 {
+                    Debug.Log("Collision with InstakillObstacle detected.");
                     TakeDamage(currentHP); // instant death
                     continue;
                 }
@@ -204,11 +225,18 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (isInvincible) return;
+        if (isInvincible)
+        {
+            Debug.Log("Player is invincible, no damage taken.");
+            return;
+        }
 
         currentHP -= amount;
+        Debug.Log($"Player took {amount} damage, HP now {currentHP}");
+
         if (currentHP <= 0)
         {
+            Debug.Log("Player died.");
             DieAndRespawn();
         }
     }
@@ -237,7 +265,11 @@ public class PlayerController : MonoBehaviour
     {
         if (fireballPrefab == null) return;
         Vector3 spawnPos = fireballSpawnPoint != null ? fireballSpawnPoint.position : transform.position + Vector3.right * 1.2f;
-        GameObject fb = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
+
+        // Spawn fireball with rotation so it is horizontal (Z rotation -90)
+        Quaternion spawnRotation = Quaternion.Euler(0, 0, -90);
+
+        GameObject fb = Instantiate(fireballPrefab, spawnPos, spawnRotation);
         var fscript = fb.GetComponent<Fireball>();
         if (fscript != null) fscript.Initialize(Vector3.right);
     }

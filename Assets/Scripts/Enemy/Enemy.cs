@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (colliderID != -1)
+        if (colliderID != -2)
             CollisionManager.Instance.RemoveCollider(colliderID);
     }
 }

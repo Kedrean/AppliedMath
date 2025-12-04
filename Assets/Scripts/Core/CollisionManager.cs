@@ -39,6 +39,7 @@ public class AABBBounds
 public class CollisionManager : MonoBehaviour
 {
     private static CollisionManager _instance;
+
     public static CollisionManager Instance
     {
         get
@@ -57,13 +58,12 @@ public class CollisionManager : MonoBehaviour
     private Dictionary<int, GameObject> _owners = new Dictionary<int, GameObject>();
     private int nextID = 0;
 
-    /// <summary>
     /// Register a collider; returns an id. Owner is optional and can be set later with SetOwner.
-    /// </summary>
     public int RegisterCollider(Vector3 center, Vector3 size, bool isPlayer = false)
     {
         int id = nextID++;
         _colliders[id] = new AABBBounds(center, size, id, isPlayer);
+        Debug.Log($"Collider registered with ID {id}, center: {center}, size: {size}, isPlayer: {isPlayer}");
         return id;
     }
 

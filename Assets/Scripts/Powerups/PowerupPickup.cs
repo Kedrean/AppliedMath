@@ -32,7 +32,9 @@ public class PowerupPickup : MonoBehaviour
             // spawn a fireball traveling to the right from the pickup position
             if (fireballPrefab != null)
             {
-                GameObject fb = Instantiate(fireballPrefab, transform.position + Vector3.right * 1.2f, Quaternion.identity);
+                // Spawn with Z rotation 90 degrees so horizontal
+                Quaternion spawnRotation = Quaternion.Euler(0, 0, -90);
+                GameObject fb = Instantiate(fireballPrefab, transform.position + Vector3.right * 1.2f, spawnRotation);
                 var fscript = fb.GetComponent<Fireball>();
                 if (fscript != null) fscript.Initialize(Vector3.right);
             }

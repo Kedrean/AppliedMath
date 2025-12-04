@@ -11,18 +11,26 @@ public class Fireball : MonoBehaviour
     private Vector3 direction = Vector3.right;
     private int colliderID = -1;
     private float lifeTimer;
+    private Quaternion rotation = Quaternion.identity;
 
     public void Initialize(Vector3 dir)
     {
         direction = dir.normalized;
+        if (direction == Vector3.right)
+            rotation = Quaternion.Euler(0, 0, -90);  // rotate on Z axis so sprite points right horizontally
+        else if (direction == Vector3.left)
+            rotation = Quaternion.Euler(0, 0, 90);   // rotate on Z axis for left
+        else
+            rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
+
 
     void Start()
     {
         lifeTimer = lifetime;
         colliderID = CollisionManager.Instance.RegisterCollider(transform.position, size, false);
         CollisionManager.Instance.SetOwner(colliderID, gameObject);
-        CollisionManager.Instance.UpdateMatrix(colliderID, Matrix4x4.TRS(transform.position, Quaternion.identity, Vector3.one));
+        CollisionManager.Instance.UpdateMatrix(colliderID, Matrix4x4.TRS(transform.position, rotation, Vector3.one));
     }
 
     void Update()
@@ -31,9 +39,8 @@ public class Fireball : MonoBehaviour
         Vector3 pos = transform.position;
         Vector3 newPos = pos + direction * speed * dt;
 
-        // Move
         transform.position = newPos;
-        CollisionManager.Instance.UpdateMatrix(colliderID, Matrix4x4.TRS(newPos, Quaternion.identity, Vector3.one));
+        CollisionManager.Instance.UpdateMatrix(colliderID, Matrix4x4.TRS(newPos, rotation, Vector3.one));
         CollisionManager.Instance.UpdateCollider(colliderID, newPos, size);
 
         if (CollisionManager.Instance.CheckCollision(colliderID, newPos, out List<int> colliding))
